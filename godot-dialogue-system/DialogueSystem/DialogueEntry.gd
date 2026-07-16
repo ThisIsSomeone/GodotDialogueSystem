@@ -1,0 +1,2 @@
+class_name DialogueEntry
+extends RefCounted

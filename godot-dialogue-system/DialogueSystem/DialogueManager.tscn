@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://yq1ogw34fp3j"]
+
+[ext_resource type="Script" uid="uid://be1dh1xqq2226" path="res://Scenes/Managers/DialogueManagers/DialogueManager.gd" id="1_bt3yi"]
+[ext_resource type="Texture2D" uid="uid://d0oysst4vschv" path="res://Assets/Textures/BorderType1.png" id="2_0ne8c"]
+[ext_resource type="Theme" uid="uid://crxvpiprc1evt" path="res://default_dialogue.tres" id="2_qj7rt"]
+[ext_resource type="Texture2D" uid="uid://bke55onbsthfq" path="res://Assets/Textures/DialogueArrow.png" id="4_sxcu4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxcu4"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_0ne8c")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[node name="DialogueManager" type="Node2D" unique_id=716017910]
+script = ExtResource("1_bt3yi")
+
+[node name="DialogueRoot" type="Control" parent="." unique_id=194362986]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueBox" type="Panel" parent="DialogueRoot" unique_id=1105927156]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 80.0
+pivot_offset = Vector2(120, 80)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sxcu4")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueRoot/DialogueBox" unique_id=1240734012]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueRoot/DialogueBox/MarginContainer" unique_id=1684951248]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_qj7rt")
+bbcode_enabled = true
+visible_characters_behavior = 1
+
+[node name="Arrow" type="Sprite2D" parent="DialogueRoot" unique_id=1376308574]
+visible = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_sxcu4")
