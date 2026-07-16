@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://hxpdtd516vs1"]
+
+[ext_resource type="Texture2D" uid="uid://de0k8j22udcwx" path="res://icon.svg" id="1_gvj1x"]
+[ext_resource type="Script" uid="uid://xbxqit6k7sm5" path="res://SceneExamples/test_scene.gd" id="1_na2cy"]
+[ext_resource type="PackedScene" uid="uid://yq1ogw34fp3j" path="res://DialogueSystem/DialogueManager.tscn" id="2_10uil"]
+
+[node name="Node2D" type="Node2D" unique_id=1390043344]
+script = ExtResource("1_na2cy")
+dialogue_on_ready = "res://DialogueExamples/debug.txt"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=843887398]
+
+[node name="Door" type="Sprite2D" parent="." unique_id=541305120]
+unique_name_in_owner = true
+modulate = Color(0.25774884, 0, 0.25774884, 1)
+position = Vector2(323, 14)
+rotation = 2.8605947
+texture = ExtResource("1_gvj1x")
+
+[node name="DialogueAnchor" type="Marker2D" parent="Door" unique_id=1751395859]
+
+[node name="Player" type="Sprite2D" parent="." unique_id=545185865]
+unique_name_in_owner = true
+position = Vector2(-114, -92)
+texture = ExtResource("1_gvj1x")
+
+[node name="DialogueAnchor" type="Marker2D" parent="Player" unique_id=207225725]
+
+[node name="DialogueManager" parent="." unique_id=716017910 instance=ExtResource("2_10uil")]

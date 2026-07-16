@@ -72,11 +72,12 @@ func start_dialogue(path: String):
 
 	set_runtime_state(RuntimeState.RESOLVING_ENTRY)
 	
+	#TODO: This is really not relevant in most scenarios here, but you should probably be implementing this elsewhere, e.g. where from the player you're calling this dialogue
 	### Call the Unique player node name to ensure that all functions are stopped
-	var player := get_node_or_null("%Player")
-
-	if player:
-		player.enter_dialogue()
+	#var player := get_node_or_null("%Player")
+	#
+	#if player:
+	#	player.enter_dialogue()
 
 	await show_current_entry()
 	complete_current_entry()
@@ -348,7 +349,7 @@ func _unhandled_input(event):
 	if !is_playing or runtime_state == RuntimeState.RESOLVING_ENTRY or runtime_state == RuntimeState.WAITING_FOR_COMMAND:
 		return
 
-	if !event.is_action_pressed("dialogic_default_action"):
+	if !event.is_action_pressed("ui_accept"):
 		return
 
 	# Ignore input while dialogue is blocked.
