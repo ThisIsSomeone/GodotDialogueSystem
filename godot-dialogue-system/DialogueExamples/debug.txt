@@ -1,0 +1,249 @@
+# ==========================================
+# Dialogue System Regression Test
+# ==========================================
+
+@speaker Player
+@offset 0 -48
+
+@player_move_b right 2
+Hello.
+
+\\
+\#
+A\\B
+A\#B
+@delay_b 2
+Hello \!block(2) there. This is test dialogue.
+Hello \\!block(2) there.
+\!camera_shake(2,0.5)Start.
+@player_move left 2
+Now an actual block until we \!block_until(AnimatedSprite2D,animation_changed) escape # This also works but doesn't because player doesn't have the signal
+And lastly \!player_move(right,1)\!block(1) do we move without interruption?
+
+# ------------------------------------------
+# Basic dialogue
+# ------------------------------------------
+
+Hello there.
+This is the second line.
+
+@player_move_b left 1
+
+Let's hide dialogue now shall we?
+
+@hide_dialogue
+
+@player_action jump
+@player_move_b right 2.5
+
+@show_dialogue
+
+That was a lot of moving.
+
+@player_move left 0.4
+@player_action_b jump
+
+Some more.
+
+@player_action_b taunt
+
+# Entire line comment should be ignored.
+
+This line has a comment after it. # This should never appear.
+
+# ------------------------------------------
+# Offsets
+# ------------------------------------------
+@speaker Player
+@offset 32 -48
+Shifted right.
+@speaker Player
+@offset -32 -48
+Shifted left.
+@speaker Player
+@offset 0 -16
+Shifted downward.
+@speaker Player
+@offset 0 -48
+Back to normal.
+@offset 0.50 # This doesn't work because we didn't put @speaker in front of it.
+
+# ------------------------------------------
+# Escaped characters
+# ------------------------------------------
+
+This should display a \# character.
+This should display one backslash: \\
+This should display both: \\ and then \#
+
+# ------------------------------------------
+# Blocking delay
+# ------------------------------------------ 
+
+This line appears immediately.
+
+@delay_b 1.5 # Blocking pause
+
+This should appear after the pause.
+
+# ------------------------------------------
+# Non-blocking delay
+# ------------------------------------------
+
+This line starts normally.
+
+@delay 2
+@camera_shake 3 2
+
+Dialogue should disappear while the shake continues.
+
+This line should appear after the delay finishes.
+
+# ------------------------------------------
+# Camera shake
+# ------------------------------------------
+
+Normal camera shake.
+
+@camera_shake 6 0.75
+
+Still talking while shaking.
+
+Another line.
+
+# ------------------------------------------
+# Blocking camera shake
+# ------------------------------------------
+
+Before blocking shake.
+
+@camera_shake_b 8 1.5
+
+Dialogue should wait until shaking finishes.
+
+This comes afterwards.
+
+# ------------------------------------------
+# Camera zoom
+# ------------------------------------------
+
+Zooming in...
+
+@camera_zoom 1.5 1.5 1
+
+Dialogue continues while zooming.
+
+Zooming back out...
+
+@camera_zoom 1 1 1
+
+# ------------------------------------------
+# Blocking camera zoom
+# ------------------------------------------
+
+Blocking zoom starts.
+
+@camera_zoom_b 2 2 2
+
+Dialogue should wait here.
+
+Back to normal.
+
+@camera_zoom_b 1 1 1
+
+# ------------------------------------------
+# Multiple simultaneous non-blocking actions
+# ------------------------------------------
+
+Everything below should happen together.
+
+@camera_zoom 1.8 1.8 2
+@camera_shake 4 2
+@delay 2
+
+Dialogue should reappear after the delay.
+
+# ------------------------------------------
+# Mixed blocking/non-blocking
+# ------------------------------------------
+
+Blocking delay...
+
+@delay_b 1
+
+...followed immediately by a non-blocking shake.
+
+@camera_shake 6 1
+
+Still talking.
+
+@camera_zoom_b 1 1 1
+
+# ------------------------------------------
+# Speaker switching
+# ------------------------------------------
+
+@speaker Door
+@offset 16 -24
+
+I can talk too.
+
+@camera_shake 2 0.5
+
+The camera shakes while I speak.
+
+@speaker Player
+@offset 0 -48
+
+And now we're back.
+
+# ------------------------------------------
+# BBCode still works
+# ------------------------------------------
+
+[b]Bold[/b]
+[i]Italic[/i]
+[shake]Shake[/shake]
+[wave]Wave[/wave]
+[pulse]Pulse[/pulse]
+[rainbow]Rainbow[/rainbow]
+
+# ------------------------------------------
+# Long line warning
+# ------------------------------------------
+
+Another line. Now let's try making this one really really really long and see what happens because it should still trigger the warning without breaking any parsing whatsoever.
+
+# ------------------------------------------
+# Comment edge cases
+# ------------------------------------------
+
+This line ends here. # Everything after this is ignored.
+
+# Entire comment line.
+
+#### Multiple hashes should still be ignored.
+
+This contains an escaped hash: \#
+
+This contains an escaped hash before a comment: \# # Only the second hash starts the comment.
+
+This contains backslashes: \\\\
+
+This contains a backslash and a start of a comment: \\#
+
+# ------------------------------------------
+# Final speaker
+# ------------------------------------------
+
+@speaker Door
+@offset 0 0
+
+Need a key.
+
+@speaker Player
+@offset 0 -48
+
+Everything seems to be working.
+
+# End of regression test.

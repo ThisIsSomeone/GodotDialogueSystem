@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://yq1ogw34fp3j"]
 
-[ext_resource type="Script" uid="uid://be1dh1xqq2226" path="res://Scenes/Managers/DialogueManagers/DialogueManager.gd" id="1_bt3yi"]
-[ext_resource type="Texture2D" uid="uid://d0oysst4vschv" path="res://Assets/Textures/BorderType1.png" id="2_0ne8c"]
-[ext_resource type="Theme" uid="uid://crxvpiprc1evt" path="res://default_dialogue.tres" id="2_qj7rt"]
-[ext_resource type="Texture2D" uid="uid://bke55onbsthfq" path="res://Assets/Textures/DialogueArrow.png" id="4_sxcu4"]
+[ext_resource type="Script" uid="uid://be1dh1xqq2226" path="res://DialogueSystem/DialogueManager.gd" id="1_bt3yi"]
+[ext_resource type="Texture2D" uid="uid://d1703opug3pmo" path="res://Assets/BorderType1.png" id="2_0ne8c"]
+[ext_resource type="Theme" uid="uid://crxvpiprc1evt" path="res://Assets/default_dialogue.tres" id="2_qj7rt"]
+[ext_resource type="Texture2D" uid="uid://dc1g5nd05qpsh" path="res://Assets/DialogueArrow.png" id="4_sxcu4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxcu4"]
 content_margin_left = 8.0

@@ -266,7 +266,9 @@ func _process(delta):
 					var character := current_text[index]
 
 					if character != " " and character != "." and character != ",":
-						AudioManager.play_player_blip()
+						#TODO: Enable if you have an audio manager
+						#AudioManager.play_player_blip()
+						pass
 
 			previous_visible_characters = text.visible_characters
 		

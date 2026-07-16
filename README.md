@@ -8,6 +8,7 @@ Either use the full project linked in the subfolder that has these basics set up
 2. Add DialogueManager to the scene you want to use dialogue in
 3. Add Marker2D named DialogueAnchor as child of a speaker with an unique name 
 4. (DialogueAnchor can be within the instantiated scene)
+5. To properly use all the signals, add relevant 
 
 DIALOGUE FILES
 (Do not assume how any file works unless I send it.)
