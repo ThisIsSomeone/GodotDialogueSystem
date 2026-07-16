@@ -1,4 +1,4 @@
-Developed for Godot 4, Made by Alette Farzad (AI-assisted coding)
+Developed for Godot 4, Made by Alette Farzad with minor help of some genAI as rubber ducky
 
 READ HOW TO USE
 
